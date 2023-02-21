@@ -31,16 +31,15 @@ module LinkedIn
     # @return [LinkedIn::Mash]
     #
     def share(options = {})
-      path = '/shares'
-      defaults = {distribution:
-                      {
-                          linkedInDistributionTarget:
-                              {
-                                  visibleToGuest: true
-                              }
-                      }
+      path = '/posts'
+      defaults = {
+        visibility: "PUBLIC",
+        distribution: {
+          feedDistribution: "MAIN_FEED"
+        },
+        lifecycleState: "PUBLISHED"
       }
-      post(path, MultiJson.dump(defaults.merge(options)), 'Content-Type' => 'application/json')
+      post(path, MultiJson.dump(defaults.merge(options)), 'Linkedin-Version' => '202301', 'Content-Type' => 'application/json')
     end
 
   end

@@ -61,7 +61,8 @@ module LinkedIn
     end
 
     def post(path=nil, body=nil, headers=nil, &block)
-      @connection.post(prepend_prefix(path), body, headers, &block)
+      post_path = LinkedIn.config.api + LinkedIn.config.new_api_version + path
+      @connection.post(post_path, body, headers, &block)
     end
 
     def put(path=nil, body=nil, headers=nil, &block)

@@ -25,7 +25,8 @@ module LinkedIn
                   :redirect_uri,
                   :authorize_url,
                   :client_secret,
-                  :default_profile_fields
+                  :default_profile_fields,
+                  :new_api_version
 
     alias_method :api_key, :client_id
     alias_method :secret_key, :client_secret
@@ -36,6 +37,7 @@ module LinkedIn
       @site = "https://www.linkedin.com"
       @token_url = "/oauth/v2/accessToken"
       @authorize_url = "/oauth/v2/authorization"
+      @new_api_version = "/rest"
     end
   end
 end
