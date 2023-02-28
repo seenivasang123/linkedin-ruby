@@ -127,6 +127,7 @@ module LinkedIn
 
       tok = self.auth_code.get_token(code, options.map { |key, value|  [key.to_s, value] }.to_h)
       self.access_token = LinkedIn::AccessToken.new(tok.token,
+                                                    tok.refresh_token,
                                                     tok.expires_in,
                                                     tok.expires_at)
       return self.access_token
