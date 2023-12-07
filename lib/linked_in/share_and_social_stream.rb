@@ -39,7 +39,7 @@ module LinkedIn
         },
         lifecycleState: "PUBLISHED"
       }
-      post(path, MultiJson.dump(defaults.merge(options)), 'Linkedin-Version' => '202301', 'Content-Type' => 'application/json')
+      post(path, MultiJson.dump(defaults.merge(options)), 'Linkedin-Version' => '202310', 'Content-Type' => 'application/json')
     end
 
   end
